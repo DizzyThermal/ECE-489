@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Shift Cipher</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="button_clear">Clear</string>
+    <string name="button_copy">Copy</string>
+    <string name="button_shift">Shift</string>
+    
+    <string name="field_input">Enter String:</string>
+    <string name="field_output">Result:</string>
+    
+    <string name="prompt_empty_string_in">Input String Cannot Be Blank!</string>
+    <string name="prompt_empty_string_out">Cannot Copy An Empty String!</string>
+    <string name="prompt_shifted">String Successfully Shifted!</string>
+    <string name="prompt_copied">Copied To Clipboard Successfully!</string>
+    <string name="prompt_stripped">Non-Alpha Characters Were Stripped From String!</string>
+    
+    <string name="numberPickerString">Shift Amount:</string>
+
+</resources>
