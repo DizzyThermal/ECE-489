@@ -18,12 +18,13 @@ import android.widget.NumberPicker;
 import android.widget.Toast;
 
 @SuppressLint("ShowToast")
-public class Activity_ShiftCipher extends Activity implements OnClickListener
+public class Activity_ShiftCipher_Two extends Activity implements OnClickListener
 {
 	EditText inputEditText = null;
 	EditText outputEditText = null;
 	
 	NumberPicker numberPicker = null;
+	NumberPicker numberPicker2 = null;
 	
 	CheckBox reverse = null;
 	
@@ -31,23 +32,28 @@ public class Activity_ShiftCipher extends Activity implements OnClickListener
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_shift_cipher);
+		setContentView(R.layout.activity_shift_cipher_two);
 		
-		numberPicker = (NumberPicker)findViewById(R.id.numberPicker);
+		numberPicker = (NumberPicker)findViewById(R.id.numberPicker_two);
+		numberPicker2 = (NumberPicker)findViewById(R.id.numberPicker_two_2);
 		
 		numberPicker.setMinValue(1);
 		numberPicker.setMaxValue(26);
 		numberPicker.setValue(1);
 		
-		reverse = (CheckBox)findViewById(R.id.reverse);
+		numberPicker2.setMinValue(1);
+		numberPicker2.setMaxValue(26);
+		numberPicker2.setValue(1);
 		
-		inputEditText = (EditText)findViewById(R.id.inputEditText);
-		outputEditText = (EditText)findViewById(R.id.outputEditText);
+		reverse = (CheckBox)findViewById(R.id.reverse_two);
 		
-		Button inputShift = (Button)findViewById(R.id.inputShiftButton);
-		Button inputClear = (Button)findViewById(R.id.inputClearButton);
-		Button outputCopy = (Button)findViewById(R.id.outputCopyButton);
-		Button outputClear = (Button)findViewById(R.id.outputClearButton);
+		inputEditText = (EditText)findViewById(R.id.inputEditText_two);
+		outputEditText = (EditText)findViewById(R.id.outputEditText_two);
+		
+		Button inputShift = (Button)findViewById(R.id.inputShiftButton_two);
+		Button inputClear = (Button)findViewById(R.id.inputClearButton_two);
+		Button outputCopy = (Button)findViewById(R.id.outputCopyButton_two);
+		Button outputClear = (Button)findViewById(R.id.outputClearButton_two);
 		
 		inputShift.setOnClickListener(this);
 		inputClear.setOnClickListener(this);
@@ -58,7 +64,7 @@ public class Activity_ShiftCipher extends Activity implements OnClickListener
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main2, menu);
 		return true;
 	}
 
@@ -67,8 +73,8 @@ public class Activity_ShiftCipher extends Activity implements OnClickListener
 	{
 		switch(item.getItemId())
 		{
-			case R.id.activity_looptwo:
-				Intent message = new Intent(this, Activity_ShiftCipher_Two.class);
+			case R.id.activity_loopone:
+				Intent message = new Intent(this, Activity_ShiftCipher.class);
 				startActivity(message); finish();
 			break;
 		}
@@ -84,7 +90,7 @@ public class Activity_ShiftCipher extends Activity implements OnClickListener
 		
 		switch(v.getId())
 		{
-			case R.id.inputShiftButton:
+			case R.id.inputShiftButton_two:
 				if(inputString.equals(""))
 					Toast.makeText(this, R.string.prompt_empty_string_in, Toast.LENGTH_SHORT).show();
 				else
@@ -94,7 +100,7 @@ public class Activity_ShiftCipher extends Activity implements OnClickListener
 
 					String shiftedString = "";
 					for(int i = 0; i < inputString.length(); i++)
-						shiftedString += addAndCheckWrap(inputString.charAt(i));	
+						shiftedString += addAndCheckWrap(inputString.charAt(i), i);	
 					
 					outputEditText.setText(shiftedString);
 					
@@ -105,10 +111,10 @@ public class Activity_ShiftCipher extends Activity implements OnClickListener
 				}
 
 				break;
-			case R.id.inputClearButton:
+			case R.id.inputClearButton_two:
 				inputEditText.setText("");
 				break;
-			case R.id.outputCopyButton:
+			case R.id.outputCopyButton_two:
 				if(outputString.equals(""))
 					Toast.makeText(this, R.string.prompt_empty_string_out, Toast.LENGTH_SHORT).show();
 				else
@@ -120,19 +126,20 @@ public class Activity_ShiftCipher extends Activity implements OnClickListener
 			    	Toast.makeText(this, R.string.prompt_copied, Toast.LENGTH_SHORT).show();
 				}
 				break;
-			case R.id.outputClearButton:
+			case R.id.outputClearButton_two:
 				outputEditText.setText("");
 				break;
 		}
 	}
 	
-	private char addAndCheckWrap(char c)
+	private char addAndCheckWrap(char c, int loopCount)
 	{
 		int C = ((int)c);
 		
+		int loop = ((loopCount % 2) == 0)?numberPicker.getValue():numberPicker2.getValue();
 		if(reverse.isChecked())
 		{
-			for(int i = numberPicker.getValue(); i > 0; i--)
+			for(int i = loop; i > 0; i--)
 			{
 				if(!(C == ((int)' ')))
 					C--;
@@ -145,7 +152,7 @@ public class Activity_ShiftCipher extends Activity implements OnClickListener
 		}
 		else
 		{
-			for(int i = 0; i < numberPicker.getValue(); i++)
+			for(int i = 0; i < loop; i++)
 			{
 				if(!(C == ((int)' ')))
 					C++;

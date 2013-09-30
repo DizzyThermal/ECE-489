@@ -18,5 +18,8 @@
     <string name="prompt_stripped">Non-Alpha Characters Were Stripped From String!</string>
     
     <string name="numberPickerString">Shift Amount:</string>
+    
+    <string name="menu_one_shifter">One Shifter</string>
+    <string name="menu_two_shifter">Two Shifter</string>
 
 </resources>

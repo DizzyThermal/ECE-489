@@ -24,17 +24,33 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int inputClearButton=0x7f070001;
-        public static final int inputEditText=0x7f070000;
-        public static final int inputShiftButton=0x7f070002;
-        public static final int numberPicker=0x7f070003;
-        public static final int outputClearButton=0x7f070006;
-        public static final int outputCopyButton=0x7f070007;
-        public static final int outputEditText=0x7f070005;
-        public static final int reverse=0x7f070004;
+        public static final int activity_loopone=0x7f080012;
+        public static final int activity_looptwo=0x7f080011;
+        public static final int inputClearButton=0x7f080001;
+        public static final int inputClearButton_two=0x7f080009;
+        public static final int inputEditText=0x7f080000;
+        public static final int inputEditText_two=0x7f080008;
+        public static final int inputShiftButton=0x7f080002;
+        public static final int inputShiftButton_two=0x7f08000a;
+        public static final int numberPicker=0x7f080003;
+        public static final int numberPicker_two=0x7f08000b;
+        public static final int numberPicker_two_2=0x7f08000c;
+        public static final int outputClearButton=0x7f080006;
+        public static final int outputClearButton_two=0x7f08000f;
+        public static final int outputCopyButton=0x7f080007;
+        public static final int outputCopyButton_two=0x7f080010;
+        public static final int outputEditText=0x7f080005;
+        public static final int outputEditText_two=0x7f08000e;
+        public static final int reverse=0x7f080004;
+        public static final int reverse_two=0x7f08000d;
     }
     public static final class layout {
-        public static final int activity_activity__shift_cipher=0x7f030000;
+        public static final int activity_shift_cipher=0x7f030000;
+        public static final int activity_shift_cipher_two=0x7f030001;
+    }
+    public static final class menu {
+        public static final int main=0x7f070000;
+        public static final int main2=0x7f070001;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -44,6 +60,8 @@ public final class R {
         public static final int button_shift=0x7f050004;
         public static final int field_input=0x7f050005;
         public static final int field_output=0x7f050006;
+        public static final int menu_one_shifter=0x7f05000d;
+        public static final int menu_two_shifter=0x7f05000e;
         public static final int numberPickerString=0x7f05000c;
         public static final int prompt_copied=0x7f05000a;
         public static final int prompt_empty_string_in=0x7f050007;
